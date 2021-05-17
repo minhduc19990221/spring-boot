@@ -1,4 +1,7 @@
 package rmit.university.sadi.repository;
 
-public interface EmployeeRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import rmit.university.sadi.model.Employee;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }
