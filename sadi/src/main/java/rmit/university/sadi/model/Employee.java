@@ -13,6 +13,7 @@ class Employee {
     private @Id @GeneratedValue Long id;
     private String name;
     private String role;
+    Employee() {}
 
     public Employee(String name, String role) {
 
