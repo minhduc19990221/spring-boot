@@ -4,12 +4,14 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "PRODUCT")
 public class Product {
 
 
-    public Product(Long id, String nameProduct, String roleProduct, String model, String brand, String company, String description, String category, int price) {
+    public Product(String nameProduct, String roleProduct, String model, String brand, String company, String description, String category, int price) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.roleProduct = roleProduct;

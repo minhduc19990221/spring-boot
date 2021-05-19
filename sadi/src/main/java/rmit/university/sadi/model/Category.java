@@ -1,11 +1,15 @@
 package rmit.university.sadi.model;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="CATEGORY")
 public class Category {
     private @Id @GeneratedValue Long id;
     private String name;

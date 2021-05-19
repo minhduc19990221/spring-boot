@@ -13,15 +13,24 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String role;
+    private String phone;
+    private String email;
+    private String address;
+
 
     Employee() {}
 
-    public Employee(String firstName, String lastName, String role) {
-
+    public Employee(String firstName, String lastName, String role, String phone, String email, String address) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
     }
+
+
 
     public String getName() {
         return this.firstName + " " + this.lastName;
@@ -34,57 +43,83 @@ public class Employee {
     }
 
     public Long getId() {
-        return this.id;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public String getRole() {
-        return this.role;
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getRole() {
+        return role;
     }
 
     public void setRole(String role) {
         this.role = role;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public boolean equals(Object o) {
-
-        if (this == o)
-            return true;
-        if (!(o instanceof Employee))
-            return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(this.id, employee.id) && Objects.equals(this.firstName, employee.firstName)
-                && Objects.equals(this.lastName, employee.lastName) && Objects.equals(this.role, employee.role);
+        return Objects.equals(id, employee.id) &&
+                Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(role, employee.role) &&
+                Objects.equals(phone, employee.phone) &&
+                Objects.equals(email, employee.email) &&
+                Objects.equals(address, employee.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.firstName, this.lastName, this.role);
+        return Objects.hash(this.id, firstName, lastName, role, phone, email, address);
     }
 
     @Override
     public String toString() {
-        return "Employee{" + "id=" + this.id + ", firstName='" + this.firstName + '\'' + ", lastName='" + this.lastName
-                + '\'' + ", role='" + this.role + '\'' + '}';
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", role='" + role + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
