@@ -18,7 +18,7 @@ public class Provider {
 
     Provider(){}
 
-    public Provider(Long id, String name, String address, String phone, String fax, String email, String contactPerson) {
+    public Provider(String name, String address, String phone, String fax, String email, String contactPerson) {
         this.id = id;
         this.name = name;
         this.address = address;

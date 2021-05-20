@@ -18,7 +18,7 @@ public class Customer {
 
     Customer(){}
 
-    public Customer(Long id, String name, String address, String phone, String fax, String email, String contactPerson) {
+    public Customer(String name, String address, String phone, String fax, String email, String contactPerson) {
         this.id = id;
         this.name = name;
         this.address = address;
