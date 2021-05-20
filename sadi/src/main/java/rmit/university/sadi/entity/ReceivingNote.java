@@ -1,4 +1,4 @@
 package rmit.university.sadi.entity;
 
-public class InventoryNote {
+public class ReceivingNote {
 }
