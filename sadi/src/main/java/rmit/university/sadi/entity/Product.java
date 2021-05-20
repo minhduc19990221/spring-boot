@@ -1,4 +1,4 @@
-package rmit.university.sadi.model;
+package rmit.university.sadi.entity;
 import java.util.Objects;
 
 import javax.persistence.Entity;

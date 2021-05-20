@@ -1,4 +1,4 @@
-package rmit.university.sadi.model;
+package rmit.university.sadi.entity;
 import rmit.university.sadi.repository.Status;
 
 import java.util.Objects;

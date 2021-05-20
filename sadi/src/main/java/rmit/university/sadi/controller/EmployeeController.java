@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import rmit.university.sadi.exception.EmployeeNotFoundException;
-import rmit.university.sadi.model.Employee;
+import rmit.university.sadi.entity.Employee;
 import rmit.university.sadi.repository.EmployeeRepository;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;

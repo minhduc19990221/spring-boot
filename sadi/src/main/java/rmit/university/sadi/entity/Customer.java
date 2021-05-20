@@ -1,13 +1,13 @@
-package rmit.university.sadi.model;
-
+package rmit.university.sadi.entity;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 @Entity
-public class Provider {
+public class Customer {
     private @Id @GeneratedValue Long id;
     private String name;
     private String address;
@@ -16,9 +16,9 @@ public class Provider {
     private String email;
     private String contactPerson;
 
-    Provider(){}
+    Customer(){}
 
-    public Provider(Long id, String name, String address, String phone, String fax, String email, String contactPerson) {
+    public Customer(Long id, String name, String address, String phone, String fax, String email, String contactPerson) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -85,27 +85,8 @@ public class Provider {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Provider provider = (Provider) o;
-        return id.equals(provider.id) &&
-                name.equals(provider.name) &&
-                address.equals(provider.address) &&
-                phone.equals(provider.phone) &&
-                fax.equals(provider.fax) &&
-                email.equals(provider.email) &&
-                contactPerson.equals(provider.contactPerson);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, address, phone, fax, email, contactPerson);
-    }
-
-    @Override
     public String toString() {
-        return "Provider{" +
+        return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
@@ -114,5 +95,24 @@ public class Provider {
                 ", email='" + email + '\'' +
                 ", contactPerson='" + contactPerson + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id) &&
+                Objects.equals(name, customer.name) &&
+                Objects.equals(address, customer.address) &&
+                Objects.equals(phone, customer.phone) &&
+                Objects.equals(fax, customer.fax) &&
+                Objects.equals(email, customer.email) &&
+                Objects.equals(contactPerson, customer.contactPerson);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, phone, fax, email, contactPerson);
     }
 }

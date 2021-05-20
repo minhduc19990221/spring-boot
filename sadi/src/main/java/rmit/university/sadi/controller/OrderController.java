@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rmit.university.sadi.exception.OrderNotFoundException;
-import rmit.university.sadi.model.Order;
+import rmit.university.sadi.entity.Order;
 import rmit.university.sadi.repository.OrderRepository;
 import rmit.university.sadi.repository.Status;
 

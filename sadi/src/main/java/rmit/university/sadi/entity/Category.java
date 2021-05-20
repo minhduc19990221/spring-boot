@@ -1,5 +1,4 @@
-package rmit.university.sadi.model;
-import org.springframework.beans.factory.annotation.Autowired;
+package rmit.university.sadi.entity;
 
 import java.util.Objects;
 
