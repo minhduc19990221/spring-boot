@@ -13,11 +13,14 @@ public class Category {
     private @Id @GeneratedValue Long id;
     private String name;
 
-    Category() {}
 
     public Category(String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Category() {
+
     }
 
     public Long getId() {
