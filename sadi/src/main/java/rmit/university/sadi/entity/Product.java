@@ -1,17 +1,19 @@
 package rmit.university.sadi.entity;
+import org.hibernate.annotations.Cascade;
+
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
 
+//    private Category category;
 
-    public Product(String nameProduct, String model, String brand, String company, String description, String category, int price) {
+    //@Inject
+    public Product(String nameProduct, String model, String brand, String company, String description, Category category, int price) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.model = model;
@@ -28,12 +30,18 @@ public class Product {
     private String brand;
     private String company;
     private String description;
-    private String category;
     private int price;
+
+
+    @ManyToOne
+//    @Cascade({org.hibernate.annotations.CascadeType.ALL})
+    private Category category;
+
     Product(){}
 
 
     //Getter & Setter
+
     public Long getId() {
         return id;
     }
@@ -82,11 +90,11 @@ public class Product {
         this.description = description;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

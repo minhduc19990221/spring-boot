@@ -1,11 +1,11 @@
 package rmit.university.sadi.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="CATEGORY")
@@ -13,6 +13,9 @@ public class Category {
     private @Id @GeneratedValue Long id;
     private String name;
 
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
+//    private Collection<Product> product =new ArrayList<Product>();
 
     public Category(String name) {
         this.id = id;
@@ -20,7 +23,6 @@ public class Category {
     }
 
     public Category() {
-
     }
 
     public Long getId() {
@@ -38,6 +40,14 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+//    public Collection<Product> getProduct() {
+//        return product;
+//    }
+//
+//    public void setProduct(Collection<Product> product) {
+//        this.product = product;
+//    }
 
     @Override
     public boolean equals(Object o) {
