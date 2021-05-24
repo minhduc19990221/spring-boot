@@ -8,8 +8,8 @@ import java.util.List;
 public class InventoryDeliveryNote {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    private Long id;
     @Column
     private String date;
     @ManyToOne
@@ -28,11 +28,11 @@ public class InventoryDeliveryNote {
     public InventoryDeliveryNote() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

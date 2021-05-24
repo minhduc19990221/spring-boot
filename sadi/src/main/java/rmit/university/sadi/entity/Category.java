@@ -1,17 +1,15 @@
 package rmit.university.sadi.entity;
 
+import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="CATEGORY")
+@Table(name="Category")
 public class Category {
-    private @Id @GeneratedValue Long id;
-    private String name;
+    private @Id @GeneratedValue @Column Long id;
+    private @Column String name;
 
     @OneToMany(mappedBy = "category")
     private List<Product> products;
@@ -25,9 +23,7 @@ public class Category {
     public Category() {
     }
 
-    public Category() {
 
-    }
 
     public Long getId() {
         return id;

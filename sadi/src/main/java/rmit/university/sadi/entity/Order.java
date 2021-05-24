@@ -3,19 +3,16 @@ import rmit.university.sadi.repository.Status;
 
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "CUSTOMER_ORDER")
+@Table(name = "Customer_Order")
 public class Order {
 
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue @Column Long id;
 
-    private String description;
-    private Status status;
+    private @Column String description;
+    private @Column Status status;
 
     Order() {}
 

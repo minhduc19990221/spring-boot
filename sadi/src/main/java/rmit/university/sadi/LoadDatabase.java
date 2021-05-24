@@ -21,7 +21,7 @@ class LoadDatabase {
             employeeRepository.save(new Employee("Frodo", "Baggins", "thief","0909","test2@gmail.com","RMIT"));
             employeeRepository.findAll().forEach(employee -> log.info("Preloaded " + employee));
 
-            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB", "Phone", 120));
+//            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB", "Phone", 120));
 
             categoryRepository.save(new Category("Phone"));
             categoryRepository.save(new Category("PC"));

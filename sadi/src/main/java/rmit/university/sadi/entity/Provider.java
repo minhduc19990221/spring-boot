@@ -2,19 +2,18 @@ package rmit.university.sadi.entity;
 
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Provider")
 public class Provider {
-    private @Id @GeneratedValue Long id;
-    private String name;
-    private String address;
-    private String phone;
-    private String fax;
-    private String email;
-    private String contactPerson;
+    private @Id @GeneratedValue @Column Long id;
+    private @Column String name;
+    private @Column String address;
+    private @Column String phone;
+    private @Column String fax;
+    private @Column String email;
+    private @Column String contactPerson;
 
     Provider(){}
 

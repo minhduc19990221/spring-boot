@@ -1,21 +1,20 @@
 package rmit.university.sadi.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "Staff")
 public class Employee {
 
     private @Id @GeneratedValue Long id;
-    private String firstName;
-    private String lastName;
-    private String role;
-    private String phone;
-    private String email;
-    private String address;
+    private @Column String firstName;
+    private @Column String lastName;
+    private @Column String role;
+    private @Column String phone;
+    private @Column String email;
+    private @Column String address;
 
 
     Employee() {}

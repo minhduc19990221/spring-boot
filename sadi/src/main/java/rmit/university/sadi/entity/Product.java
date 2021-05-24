@@ -1,13 +1,10 @@
 package rmit.university.sadi.entity;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "Product")
 public class Product {
 
 
@@ -23,15 +20,15 @@ public class Product {
         this.price = price;
     }
 
-    private @Id @GeneratedValue Long id;
-    private String nameProduct;
-    private String roleProduct;
-    private String model;
-    private String brand;
-    private String company;
-    private String description;
-    private String category;
-    private int price;
+    private @Id @GeneratedValue @Column Long id;
+    private @Column String nameProduct;
+    private @Column String roleProduct;
+    private @Column String model;
+    private @Column String brand;
+    private @Column String company;
+    private @Column String description;
+    private @Column String category;
+    private @Column int price;
     Product(){}
 
 
