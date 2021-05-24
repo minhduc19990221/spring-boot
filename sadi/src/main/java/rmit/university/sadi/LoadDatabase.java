@@ -23,15 +23,20 @@ class LoadDatabase {
 
             productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB", "Phone", 120));
 
+            categoryRepository.save(new Category("Phone"));
+            categoryRepository.save(new Category("PC"));
+            categoryRepository.findAll().forEach(category -> log.info("Preloaded" + category));
+
+//            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB",new Category("phone"), 120));
+//            productRepository.findAll().forEach(product -> {
+//                log.info("Preloaded " + product);
+//            });
+
             orderRepository.save(new Order("MacBook Pro", Status.COMPLETED));
             orderRepository.save(new Order("iPhone", Status.IN_PROGRESS));
             orderRepository.findAll().forEach(order -> {
                 log.info("Preloaded " + order);
             });
-
-            categoryRepository.save(new Category("Phone"));
-            categoryRepository.save(new Category("PC"));
-            categoryRepository.findAll().forEach(category -> log.info("Preloaded" + category));
 
             customerRepository.save(new Customer("Bob","RMIT Customer 1","7021","7021fax","bob@rmit.edu.vn","Bobby"));
             customerRepository.findAll().forEach(customer -> log.info("Preloaded" + customer));

@@ -13,10 +13,16 @@ public class Category {
     private @Id @GeneratedValue Long id;
     private String name;
 
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
+//    private Collection<Product> product =new ArrayList<Product>();
 
     public Category(String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Category() {
     }
 
     public Category() {
@@ -38,6 +44,14 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+//    public Collection<Product> getProduct() {
+//        return product;
+//    }
+//
+//    public void setProduct(Collection<Product> product) {
+//        this.product = product;
+//    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,4 +1,3 @@
-
 package rmit.university.sadi.exception;
 
 public class ProductNotFoundException extends RuntimeException {
