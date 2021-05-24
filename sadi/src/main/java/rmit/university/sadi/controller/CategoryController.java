@@ -55,6 +55,18 @@ public class CategoryController {
 
         return assembler.toModel(category);
     }
+    //Search API for category
+    @GetMapping("/categories/name/{name}")
+    EntityModel<Category> identifier(@PathVariable String name) {
+
+        Category categories = repository.findAll().stream()
+                .filter(category -> name.equals(category.getName()))
+                .findAny()
+                .orElse(null);
+
+        assert categories != null;
+        return assembler.toModel(categories);
+    }
 
     @PutMapping("/categories/{id}")
     ResponseEntity<?> replaceCategory(@RequestBody Category newCategory, @PathVariable Long id) {
