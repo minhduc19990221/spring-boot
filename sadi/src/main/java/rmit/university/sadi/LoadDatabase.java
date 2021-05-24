@@ -27,10 +27,10 @@ class LoadDatabase {
             categoryRepository.save(new Category("PC"));
             categoryRepository.findAll().forEach(category -> log.info("Preloaded" + category));
 
-//            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB",new Category("phone"), 120));
-//            productRepository.findAll().forEach(product -> {
-//                log.info("Preloaded " + product);
-//            });
+            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB","abc", categoryRepository.getOne(1L),1000 ));
+            productRepository.findAll().forEach(product -> {
+                log.info("Preloaded " + product);
+            });
 
             orderRepository.save(new Order("MacBook Pro", Status.COMPLETED));
             orderRepository.save(new Order("iPhone", Status.IN_PROGRESS));

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import rmit.university.sadi.entity.Product;
 import rmit.university.sadi.exception.ProductNotFoundException;
-import rmit.university.sadi.exception.ProviderNotFoundException;
 import rmit.university.sadi.repository.ProductRepository;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -67,6 +66,13 @@ public class ProductController {
         Product updatedProduct = repository.findById(id) //
                 .map(product -> {
                     product.setNameProduct(newProduct.getNameProduct());
+                    product.setBrand(newProduct.getBrand());
+                    product.setCategory(newProduct.getCategory());
+                    product.setCompany(newProduct.getCompany());
+                    product.setDescription(newProduct.getDescription());
+                    product.setModel(newProduct.getModel());
+                    product.setPrice(newProduct.getPrice());
+                    product.setRoleProduct(newProduct.getRoleProduct());
                     return repository.save(product);
                 }) //
                 .orElseGet(() -> {

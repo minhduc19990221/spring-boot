@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Product {
 
 
-    public Product(String nameProduct, String roleProduct, String model, String brand, String company, String description, String category, int price) {
+    public Product(String nameProduct, String roleProduct, String model, String brand, String company, String description, Category category, int price) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.roleProduct = roleProduct;
@@ -27,9 +27,9 @@ public class Product {
     private @Column String brand;
     private @Column String company;
     private @Column String description;
-    private @Column String category;
+    private @ManyToOne Category category;
     private @Column int price;
-    Product(){}
+
 
 
     //Getter & Setter
@@ -89,11 +89,11 @@ public class Product {
         this.description = description;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
