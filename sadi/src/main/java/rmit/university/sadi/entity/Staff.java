@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Staff")
-public class Employee {
+public class Staff {
 
     private @Id @GeneratedValue Long id;
     private @Column String firstName;
@@ -17,9 +17,9 @@ public class Employee {
     private @Column String address;
 
 
-    Employee() {}
+    Staff() {}
 
-    public Employee(String firstName, String lastName, String role, String phone, String email, String address) {
+    public Staff(String firstName, String lastName, String role, String phone, String email, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -94,14 +94,14 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) &&
-                Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(role, employee.role) &&
-                Objects.equals(phone, employee.phone) &&
-                Objects.equals(email, employee.email) &&
-                Objects.equals(address, employee.address);
+        Staff staff = (Staff) o;
+        return Objects.equals(id, staff.id) &&
+                Objects.equals(firstName, staff.firstName) &&
+                Objects.equals(lastName, staff.lastName) &&
+                Objects.equals(role, staff.role) &&
+                Objects.equals(phone, staff.phone) &&
+                Objects.equals(email, staff.email) &&
+                Objects.equals(address, staff.address);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Staff{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

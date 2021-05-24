@@ -10,7 +10,6 @@ public class InventoryReceivingNoteDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-//    @JsonIgnore
     private InventoryReceivingNote inventoryReceivingNote;
     @ManyToOne
     private Product product;

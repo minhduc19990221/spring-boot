@@ -13,7 +13,7 @@ public class InventoryDeliveryNote {
     @Column
     private String date;
     @ManyToOne
-    private Employee staff;
+    private Staff staff;
     @OneToMany(mappedBy = "inventoryDeliveryNote", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<InventoryDeliveryNoteDetail> inventoryDeliveryNoteDetails;
 
@@ -44,11 +44,11 @@ public class InventoryDeliveryNote {
         this.date = date;
     }
 
-    public Employee getStaff() {
+    public Staff getStaff() {
         return staff;
     }
 
-    public void setStaff(Employee staff) {
+    public void setStaff(Staff staff) {
         this.staff = staff;
     }
 }

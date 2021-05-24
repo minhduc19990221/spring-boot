@@ -14,7 +14,7 @@ public class SalesInvoice {
     @Column
     private String date;
     @ManyToOne
-    private Employee staff;
+    private Staff staff;
     @ManyToOne
     private Customer customer;
     @ManyToOne
@@ -45,11 +45,11 @@ public class SalesInvoice {
         this.date = date;
     }
 
-    public Employee getStaff() {
+    public Staff getStaff() {
         return staff;
     }
 
-    public void setStaff(Employee staff) {
+    public void setStaff(Staff staff) {
         this.staff = staff;
     }
 

@@ -7,8 +7,8 @@ import java.util.List;
 public class InventoryReceivingNote {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    private Long id;
     @Column
     private String date;
     @Column
@@ -27,11 +27,11 @@ public class InventoryReceivingNote {
     public InventoryReceivingNote() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

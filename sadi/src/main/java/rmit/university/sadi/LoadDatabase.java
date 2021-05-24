@@ -14,12 +14,12 @@ class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     @Bean
-    CommandLineRunner initDatabase(EmployeeRepository employeeRepository, OrderRepository orderRepository, CategoryRepository categoryRepository, ProductRepository productRepository, CustomerRepository customerRepository, ProviderRepository providerRepository) {
+    CommandLineRunner initDatabase(StaffRepository staffRepository, OrderRepository orderRepository, CategoryRepository categoryRepository, ProductRepository productRepository, CustomerRepository customerRepository, ProviderRepository providerRepository) {
 
         return args -> {
-            employeeRepository.save(new Employee("Bilbo", "Baggins", "burglar","0933","test1@gmail.com","RMIT"));
-            employeeRepository.save(new Employee("Frodo", "Baggins", "thief","0909","test2@gmail.com","RMIT"));
-            employeeRepository.findAll().forEach(employee -> log.info("Preloaded " + employee));
+            staffRepository.save(new Staff("Bilbo", "Baggins", "burglar","0933","test1@gmail.com","RMIT"));
+            staffRepository.save(new Staff("Frodo", "Baggins", "thief","0909","test2@gmail.com","RMIT"));
+            staffRepository.findAll().forEach(employee -> log.info("Preloaded " + employee));
 
 //            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB", "Phone", 120));
 
@@ -27,10 +27,10 @@ class LoadDatabase {
             categoryRepository.save(new Category("PC"));
             categoryRepository.findAll().forEach(category -> log.info("Preloaded" + category));
 
-            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB","abc", categoryRepository.getOne(1L),1000 ));
-            productRepository.findAll().forEach(product -> {
-                log.info("Preloaded " + product);
-            });
+//            productRepository.save(new Product("iphone11 pro max", "version12", "iphone", "Apple", "gold color 164GB","abc", categoryRepository.getOne(1L),1000 ));
+//            productRepository.findAll().forEach(product -> {
+//                log.info("Preloaded " + product);
+//            });
 
             orderRepository.save(new Order("MacBook Pro", Status.COMPLETED));
             orderRepository.save(new Order("iPhone", Status.IN_PROGRESS));

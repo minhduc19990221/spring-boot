@@ -14,7 +14,7 @@ public class InventoryDeliveryNoteModelAssembler implements RepresentationModelA
     public EntityModel<InventoryDeliveryNote> toModel(InventoryDeliveryNote inventoryDeliveryNote) {
 
         return EntityModel.of(inventoryDeliveryNote, //
-                linkTo(methodOn(EmployeeController.class).one(inventoryDeliveryNote.getId())).withSelfRel(),
-                linkTo(methodOn(EmployeeController.class).all()).withRel("inventories"));
+                linkTo(methodOn(InventoryReceivingController.class).one(inventoryDeliveryNote.getId())).withSelfRel(),
+                linkTo(methodOn(InventoryReceivingController.class).all()).withRel("inventories"));
     }
 }
