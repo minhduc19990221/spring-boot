@@ -9,7 +9,7 @@ All the related resources might be found in the Project -> Resources
 ***********************
 
 
-MySQL version 5.6 or better. If you have Docker installed, it might be useful to run the database as a container.
+PostgreSQL 4.2 or better. If you have Docker installed, it might be useful to run the database as a container.
 
 About 15 minutes
 
