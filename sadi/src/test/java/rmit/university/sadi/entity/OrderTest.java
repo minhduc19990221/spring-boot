@@ -67,7 +67,8 @@ class OrderTest {
     @Test
     void testHashCode() {
         Order order=new Order("MacBook", Status.COMPLETED);
-        assertEquals(468909439,order.hashCode());
+        Order order1=new Order("MacBook", Status.COMPLETED);
+        assertEquals(order1.hashCode(),order.hashCode());
         assertNotEquals("468909439",order.hashCode());
 
     }
