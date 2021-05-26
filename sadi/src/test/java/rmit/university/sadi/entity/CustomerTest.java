@@ -142,6 +142,9 @@ class CustomerTest {
         Customer customer1= new Customer("John","23 Nguyen Van Linh","089765645434","87676564564","John@gmail.com","Mike");
         Customer customer2= new Customer("John","23 Nguyen Van Linh","089765645434","87676564564","John@gmail.com","Mike");
         Customer customer3= new Customer("Mike","23 Nguyen Van Linh","089765645764","87676564564","Mike@gmail.com","Mike");
+        customer1.setId(1L);
+        customer2.setId(1L);
+        customer3.setId(2L);
         assertEquals(true,customer1.equals(customer2));
         assertEquals(false,customer1.equals(customer3));
     }
