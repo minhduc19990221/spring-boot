@@ -27,6 +27,17 @@ public class SalesInvoice {
     private double totalValue;
 
     public SalesInvoice() {
+
+    }
+
+    public SalesInvoice(String date, Staff staff, Customer customer, Product product, int quantity, double price, double totalValue) {
+        this.date = date;
+        this.staff = staff;
+        this.customer = customer;
+        this.product = product;
+        this.quantity = quantity;
+        this.price = price;
+        this.totalValue = totalValue;
     }
 
     public Long getId() {
