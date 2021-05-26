@@ -60,6 +60,18 @@ public class ProductController {
         return assembler.toModel(product);
     }
 
+    @GetMapping("/products/name/{name}")
+    EntityModel<Product> identifier(@PathVariable String name) {
+
+        Product product = repository.findAll().stream()
+                .filter(product1 -> name.equals(product1.getNameProduct()))
+                .findAny()
+                .orElse(null);
+
+        assert product != null;
+        return assembler.toModel(product);
+    }
+
     @PutMapping("/products/{id}")
     ResponseEntity<?> replaceProduct(@RequestBody Product newProduct, @PathVariable Long id) {
 

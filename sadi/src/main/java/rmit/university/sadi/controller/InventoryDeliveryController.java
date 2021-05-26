@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import rmit.university.sadi.entity.Customer;
 import rmit.university.sadi.entity.InventoryDeliveryNote;
 import rmit.university.sadi.exception.InventoryDeliveryNoteNotFoundException;
 import rmit.university.sadi.repository.InventoryDeliveryNoteRepository;
@@ -61,6 +62,17 @@ public class InventoryDeliveryController {
                 .orElseThrow(() -> new InventoryDeliveryNoteNotFoundException(id));
 
         return assembler.toModel(inventory);
+    }
+    @GetMapping("/inventories/date/{date}")
+    EntityModel<InventoryDeliveryNote> identifier(@PathVariable String date) {
+
+        InventoryDeliveryNote inventoryDeliveryNote = repository.findAll().stream()
+                .filter(note -> date.equals(note.getDate()))
+                .findAny()
+                .orElse(null);
+
+        assert inventoryDeliveryNote != null;
+        return assembler.toModel(inventoryDeliveryNote);
     }
 
     @PutMapping("/inventories/{id}")

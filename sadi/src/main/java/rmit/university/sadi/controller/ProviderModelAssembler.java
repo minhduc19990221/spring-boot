@@ -13,6 +13,7 @@ public class ProviderModelAssembler implements RepresentationModelAssembler<Prov
 
         return EntityModel.of(provider, //
                 linkTo(methodOn(ProviderController.class).one(provider.getId())).withSelfRel(),
-                linkTo(methodOn(ProviderController.class).all()).withRel("categories"));
+                linkTo(methodOn(ProductController.class).identifier(provider.getName())).withSelfRel(),
+                linkTo(methodOn(ProviderController.class).all()).withRel("providers"));
     }
 }

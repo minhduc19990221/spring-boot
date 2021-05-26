@@ -63,6 +63,18 @@ public class StaffController {
         return assembler.toModel(staff);
     }
 
+    @GetMapping("/staffs/name/{name}")
+    EntityModel<Staff> identifier(@PathVariable String name) {
+
+        Staff staff = repository.findAll().stream()
+                .filter(staff1 -> name.equals(staff1.getName()))
+                .findAny()
+                .orElse(null);
+
+        assert staff != null;
+        return assembler.toModel(staff);
+    }
+
     @PutMapping("/staffs/{id}")
     ResponseEntity<?> replaceStaff(@RequestBody Staff newStaff, @PathVariable Long id) {
 

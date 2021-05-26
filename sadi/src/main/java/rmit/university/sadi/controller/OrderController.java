@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rmit.university.sadi.entity.Customer;
 import rmit.university.sadi.exception.OrderNotFoundException;
 import rmit.university.sadi.entity.Order;
 import rmit.university.sadi.repository.OrderRepository;
@@ -42,6 +43,17 @@ public class OrderController {
     EntityModel<Order> one(@PathVariable Long id){
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException(id));
+        return assembler.toModel(order);
+    }
+
+    @GetMapping("/orders/description/{description}")
+    EntityModel<Order> identifier(@PathVariable String description){
+        Order order = orderRepository.findAll().stream()
+                .filter(order1 -> description.equals(order1.getDescription()))
+                .findAny()
+                .orElse(null);
+
+        assert order != null;
         return assembler.toModel(order);
     }
 

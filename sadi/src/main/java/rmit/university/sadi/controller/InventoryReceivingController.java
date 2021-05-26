@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import rmit.university.sadi.entity.InventoryDeliveryNote;
 import rmit.university.sadi.entity.InventoryReceivingNote;
 import rmit.university.sadi.exception.InventoryReceivingNoteNotFoundException;
 import rmit.university.sadi.repository.InventoryReceivingNoteRepository;
@@ -59,6 +60,17 @@ public class InventoryReceivingController {
                 .orElseThrow(() -> new InventoryReceivingNoteNotFoundException(id));
 
         return assembler.toModel(receiver);
+    }
+    @GetMapping("/receivers/date/{date}")
+    EntityModel<InventoryReceivingNote> identifier(@PathVariable String date) {
+
+        InventoryReceivingNote inventoryReceivingNote = repository.findAll().stream()
+                .filter(note -> date.equals(note.getDate()))
+                .findAny()
+                .orElse(null);
+
+        assert inventoryReceivingNote != null;
+        return assembler.toModel(inventoryReceivingNote);
     }
 
     @PutMapping("/receivers/{id}")
