@@ -72,7 +72,6 @@ public class ProductController {
                     product.setDescription(newProduct.getDescription());
                     product.setModel(newProduct.getModel());
                     product.setPrice(newProduct.getPrice());
-                    product.setRoleProduct(newProduct.getRoleProduct());
                     return repository.save(product);
                 }) //
                 .orElseGet(() -> {
