@@ -15,6 +15,7 @@ public class SalesInvoiceModelAssembler implements RepresentationModelAssembler<
 
         return EntityModel.of(salesInvoice,
                 linkTo(methodOn(SalesInvoiceController.class).one(salesInvoice.getId())).withSelfRel(),
+                linkTo(methodOn(SalesInvoiceController.class).identifier(salesInvoice.getDate())).withSelfRel(),
                 linkTo(methodOn(SalesInvoiceController.class).all()).withRel("saleInvoices"));
     }
 }

@@ -63,6 +63,18 @@ public class ProviderController {
         return assembler.toModel(provider);
     }
 
+    @GetMapping("/providers/name/{name}")
+    EntityModel<Provider> identifier(@PathVariable String name) {
+
+        Provider provider = repository.findAll().stream()
+                .filter(provider1 -> name.equals(provider1.getName()))
+                .findAny()
+                .orElse(null);
+
+        assert provider != null;
+        return assembler.toModel(provider);
+    }
+
     @PutMapping("/providers/{id}")
     ResponseEntity<?> replaceProvider(@RequestBody Provider newProvider, @PathVariable Long id) {
 

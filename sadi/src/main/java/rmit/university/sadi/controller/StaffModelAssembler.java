@@ -15,6 +15,7 @@ class StaffModelAssembler implements RepresentationModelAssembler<Staff, EntityM
 
         return EntityModel.of(staff, //
                 linkTo(methodOn(StaffController.class).one(staff.getId())).withSelfRel(),
-                linkTo(methodOn(StaffController.class).all()).withRel("employees"));
+                linkTo(methodOn(StaffController.class).identifier(staff.getName())).withSelfRel(),
+                linkTo(methodOn(StaffController.class).all()).withRel("staffs"));
     }
 }

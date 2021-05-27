@@ -56,6 +56,18 @@ public class SalesInvoiceController {
         return assembler.toModel(saleInvoice);
     }
 
+    @GetMapping("/saleInvoices/date/{date}")
+    EntityModel<SalesInvoice> identifier(@PathVariable String date) {
+
+        SalesInvoice saleInvoice = repository.findAll().stream()
+                .filter(salesInvoice -> date.equals(salesInvoice.getDate()))
+                .findAny()
+                .orElse(null);
+
+        assert saleInvoice != null;
+        return assembler.toModel(saleInvoice);
+    }
+
     @PutMapping("/saleInvoices/{id}")
     ResponseEntity<?> replaceSalesInvoice(@RequestBody SalesInvoice newSalesInvoice, @PathVariable Long id) {
 

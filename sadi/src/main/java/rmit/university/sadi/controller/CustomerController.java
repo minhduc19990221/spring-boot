@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import rmit.university.sadi.entity.Category;
 import rmit.university.sadi.entity.Customer;
 import rmit.university.sadi.exception.CustomerNotFoundException;
 import rmit.university.sadi.repository.CustomerRepository;
@@ -62,6 +63,18 @@ public class CustomerController {
 
         return assembler.toModel(customer);
     }
+    @GetMapping("/customers/name/{name}")
+    EntityModel<Customer> identifier(@PathVariable String name) {
+
+        Customer customer = repository.findAll().stream()
+                .filter(customers -> name.equals(customers.getName()))
+                .findAny()
+                .orElse(null);
+
+        assert customer != null;
+        return assembler.toModel(customer);
+    }
+
 
     @PutMapping("/customers/{id}")
     ResponseEntity<?> replaceCustomer(@RequestBody Customer newCustomer, @PathVariable Long id) {
