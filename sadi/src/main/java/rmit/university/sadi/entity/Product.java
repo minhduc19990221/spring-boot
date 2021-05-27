@@ -8,10 +8,9 @@ import javax.persistence.*;
 public class Product {
 
 
-    public Product(String nameProduct, String roleProduct, String model, String brand, String company, String description, Category category, int price) {
+    public Product(String nameProduct, String model, String brand, String company, String description, Category category, int price) {
         this.id = id;
         this.nameProduct = nameProduct;
-        this.roleProduct = roleProduct;
         this.model = model;
         this.brand = brand;
         this.company = company;
@@ -19,10 +18,10 @@ public class Product {
         this.category = category;
         this.price = price;
     }
+    public Product(){};
 
     private @Id @GeneratedValue @Column Long id;
     private @Column String nameProduct;
-    private @Column String roleProduct;
     private @Column String model;
     private @Column String brand;
     private @Column String company;
@@ -47,14 +46,6 @@ public class Product {
 
     public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
-    }
-
-    public String getRoleProduct() {
-        return roleProduct;
-    }
-
-    public void setRoleProduct(String roleProduct) {
-        this.roleProduct = roleProduct;
     }
 
     public String getModel() {
@@ -107,7 +98,7 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nameProduct, roleProduct, model, brand, company, description, category, price);
+        return Objects.hash(id, nameProduct, model, brand, company, description, category, price);
     }
 
     @Override
@@ -115,7 +106,6 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", nameProduct='" + nameProduct + '\'' +
-                ", roleProduct='" + roleProduct + '\'' +
                 ", model='" + model + '\'' +
                 ", brand='" + brand + '\'' +
                 ", company='" + company + '\'' +
@@ -134,7 +124,6 @@ public class Product {
         Product product = (Product) o;
         return Objects.equals(this.id, product.id)
                 && Objects.equals(this.nameProduct, product.nameProduct)
-                && Objects.equals(this.roleProduct, product.roleProduct)
                 && Objects.equals(this.model, product.model)
                 && Objects.equals(this.brand, product.brand)
                 && Objects.equals(this.company, product.company)
