@@ -19,7 +19,7 @@ public class Order {
     private @Column String description;
     private @Column Status status;
 
-    Order() {}
+    public Order() {}
 
     public Order(Staff staff, Provider provider, OrderDetails orderDetailsList, String description, Status status) {
         this.staff = staff;

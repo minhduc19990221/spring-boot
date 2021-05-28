@@ -17,7 +17,7 @@ public class Staff {
     private @Column String address;
 
 
-    Staff() {}
+    public Staff() {}
 
     public Staff(String firstName, String lastName, String role, String phone, String email, String address) {
         this.id = id;
