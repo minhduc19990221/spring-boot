@@ -15,7 +15,7 @@ public class Provider {
     private @Column String email;
     private @Column String contactPerson;
 
-    Provider(){}
+    public Provider(){}
 
     public Provider(String name, String address, String phone, String fax, String email, String contactPerson) {
         this.id = id;
