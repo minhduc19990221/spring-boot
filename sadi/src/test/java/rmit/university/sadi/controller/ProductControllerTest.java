@@ -55,7 +55,7 @@ class ProductControllerTest extends AbstractTest  {
     public void createProduct() throws Exception {
         String uri = "/products";
         Category category=new Category("phone");
-        Product product = new Product();
+        Product product = new Product("phone","samsung","samsung","samsung","no",category,500);
         product.setId(88L);
         product.setNameProduct("Phone");
         product.setCategory(category);
@@ -81,7 +81,8 @@ class ProductControllerTest extends AbstractTest  {
     public void updateProduct() throws Exception {
         String uri = "/products/2";
         //Remember to check for the id to see the id exist or not!
-        Product product = new Product();
+        Category category=new Category("phone");
+        Product product = new Product("phone","samsung","samsung","samsung","no",category,500);
         product.setPrice(100);
         String inputJson = super.mapToJson(product);
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri)
