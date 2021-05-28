@@ -15,7 +15,7 @@ public class Customer {
     private @Column String email;
     private @Column String contactPerson;
 
-    Customer(){}
+    public Customer(){}
 
     public Customer(String name, String address, String phone, String fax, String email, String contactPerson) {
         this.id = id;
