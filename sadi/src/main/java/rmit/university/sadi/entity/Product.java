@@ -18,7 +18,7 @@ public class Product {
         this.category = category;
         this.price = price;
     }
-    public Product(){};
+    Product(){};
 
     private @Id @GeneratedValue @Column Long id;
     private @Column String nameProduct;
@@ -26,7 +26,7 @@ public class Product {
     private @Column String brand;
     private @Column String company;
     private @Column String description;
-    private @ManyToOne Category category;
+    private @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL) Category category;
     private @Column int price;
 
 

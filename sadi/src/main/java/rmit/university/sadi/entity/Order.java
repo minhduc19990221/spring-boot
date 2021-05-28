@@ -1,6 +1,7 @@
 package rmit.university.sadi.entity;
 import rmit.university.sadi.repository.Status;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -10,14 +11,20 @@ import javax.persistence.*;
 public class Order {
 
     private @Id @GeneratedValue @Column Long id;
+    private @ManyToOne Staff staff;
+    private @ManyToOne Provider provider;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private OrderDetails orderDetailsList;
 
     private @Column String description;
     private @Column Status status;
 
     Order() {}
 
-    public Order(String description, Status status) {
-
+    public Order(Staff staff, Provider provider, OrderDetails orderDetailsList, String description, Status status) {
+        this.staff = staff;
+        this.provider = provider;
+        this.orderDetailsList = orderDetailsList;
         this.description = description;
         this.status = status;
     }

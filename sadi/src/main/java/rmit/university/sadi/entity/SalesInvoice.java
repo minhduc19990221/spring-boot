@@ -26,7 +26,7 @@ public class SalesInvoice {
     @Column
     private double totalValue;
 
-    public SalesInvoice() {
+    SalesInvoice() {
 
     }
 

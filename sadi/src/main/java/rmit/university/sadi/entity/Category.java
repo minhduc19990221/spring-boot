@@ -11,9 +11,8 @@ public class Category {
     private @Id @GeneratedValue @Column Long id;
     private @Column String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany
     private List<Product> products;
-//    private Collection<Product> product =new ArrayList<Product>();
 
     public Category(String name) {
         this.id = id;
