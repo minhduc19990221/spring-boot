@@ -89,5 +89,13 @@ class StaffControllerTest extends AbstractTest  {
         assertEquals(201, status);
 
     }
+    @Test
+    public void deleteStaff() throws Exception {
+        String uri = "/staffs/4";
+        //Remember to change the id above to make this test success!
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.delete(uri)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(204, status);
+    }
 
 }
