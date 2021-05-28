@@ -14,7 +14,7 @@ public class Order {
     private @Column String description;
     private @Column Status status;
 
-    Order() {}
+    public Order() {}
 
     public Order(String description, Status status) {
 
