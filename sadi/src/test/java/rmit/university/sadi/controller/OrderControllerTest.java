@@ -38,7 +38,7 @@ class OrderControllerTest extends AbstractTest {
         super.setUp();
     }
     @Test
-    public void getCategoriesList() throws Exception {
+    public void getOrderList() throws Exception {
         String uri = "/orders";
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
                 .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
@@ -78,6 +78,21 @@ class OrderControllerTest extends AbstractTest {
         //Remember to check for the id to see the id exist or not!
         Order order = new Order();
         order.setStatus(Status.CANCELLED);
+        String inputJson = super.mapToJson(order);
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(inputJson)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(201, status);
+
+    }
+    @Test
+    public void cancelOrder() throws Exception {
+        String uri = "/orders/2";
+        //Remember to check for the id to see the id exist or not!
+        Order order = new Order();
+        order.setStatus(Status.IN_PROGRESS);
         String inputJson = super.mapToJson(order);
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
