@@ -1,11 +1,14 @@
 package rmit.university.sadi.entity;
 
+import com.sun.istack.logging.Logger;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import rmit.university.sadi.controller.CategoryModelAssembler;
 import rmit.university.sadi.repository.CategoryRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,27 +21,50 @@ class InventoryDeliveryNoteTest {
 
     @Test
     void getInventoryDeliveryNoteDetails() {
-//        Category category=new Category("phone");
-//        category.setId(1L);
-//        Product product=new Product("iphone11 pro max","version12","iphone","Apple","rose gold", category,120);
-//
-//        InventoryDeliveryNoteDetail inventoryDeliveryNoteDetail=new InventoryDeliveryNoteDetail();
-//
-//        inventoryDeliveryNoteDetail.setId(12);
-//        inventoryDeliveryNoteDetail.setProduct(product);
-//        inventoryDeliveryNoteDetail.setQuantity(12);
+
+        Category category=new Category("phone");
+        category.setId(1L);
+        Product product=new Product("iphone11 pro max","version12","iphone","Apple","rose gold", category,120);
 
         InventoryDeliveryNote inventoryDeliveryNote=new InventoryDeliveryNote();
-//        List<InventoryDeliveryNoteDetail> inventoryDeliveryNoteDetails = new List<InventoryDeliveryNoteDetail>();
-//        List<InventoryDeliveryNoteDetail> inventoryDeliveryNoteDetails=null;
-//       inventoryDeliveryNoteDetails.add(inventoryDeliveryNoteDetail);
-//        inventoryDeliveryNote.setInventoryDeliveryNoteDetails(inventoryDeliveryNoteDetails);
-//        assertEquals("hello",inventoryDeliveryNote.getInventoryDeliveryNoteDetails());
+        InventoryDeliveryNoteDetail inventoryDeliveryNoteDetail=new InventoryDeliveryNoteDetail();
+
+        inventoryDeliveryNoteDetail.setId(12);
+        inventoryDeliveryNoteDetail.setProduct(product);
+        inventoryDeliveryNoteDetail.setQuantity(12);
+
+        ArrayList<InventoryDeliveryNoteDetail> inventoryDeliveryNoteDetails = new ArrayList<>();
+        inventoryDeliveryNoteDetails.add(inventoryDeliveryNoteDetail);
+        inventoryDeliveryNote.setInventoryDeliveryNoteDetails(inventoryDeliveryNoteDetails);
+
+
+        assertEquals(inventoryDeliveryNoteDetail,inventoryDeliveryNote.getInventoryDeliveryNoteDetails().get(0));
     }
 
     @Test
     void setInventoryDeliveryNoteDetails() {
+
+        Category category=new Category("phone");
+        category.setId(1L);
+        Product product=new Product("iphone11 pro max","version12","iphone","Apple","rose gold", category,120);
+
         InventoryDeliveryNote inventoryDeliveryNote=new InventoryDeliveryNote();
+        InventoryDeliveryNoteDetail inventoryDeliveryNoteDetail=new InventoryDeliveryNoteDetail();
+
+        inventoryDeliveryNoteDetail.setId(12);
+        inventoryDeliveryNoteDetail.setProduct(product);
+        inventoryDeliveryNoteDetail.setQuantity(12);
+
+        ArrayList<InventoryDeliveryNoteDetail> inventoryDeliveryNoteDetails = new ArrayList<>();
+        inventoryDeliveryNoteDetails.add(inventoryDeliveryNoteDetail);
+        inventoryDeliveryNote.setInventoryDeliveryNoteDetails(inventoryDeliveryNoteDetails);
+
+        inventoryDeliveryNote.setInventoryDeliveryNoteDetails(inventoryDeliveryNoteDetails);
+
+        assertEquals(inventoryDeliveryNoteDetail,inventoryDeliveryNote.getInventoryDeliveryNoteDetails().get(0));
+
+
+
     }
 
     @Test

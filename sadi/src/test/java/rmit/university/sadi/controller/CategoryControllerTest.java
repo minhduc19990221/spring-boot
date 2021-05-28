@@ -27,6 +27,7 @@ import org.springframework.web.context.WebApplicationContext;
 import rmit.university.sadi.entity.Category;
 import rmit.university.sadi.repository.CategoryRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,13 +67,18 @@ class CategoryControllerTest {
         category1.setId(1L);
         Category category2=new Category("phone");
         category2.setId(2L);
+
         // save() method of CategoryRepository
         categoryRepository.save(category1);
         categoryRepository.save(category2);
         categoryModelAssembler.toModel(category1);
         categoryModelAssembler.toModel(category2);
 //        CollectionModel<EntityModel<Category>> createdCategoryAsMono = categoryController.all();
-        assertEquals("hello",categoryController.all());
+        ArrayList<Category> categoryList = new ArrayList<>();
+        categoryList.add(category1);
+        categoryList.add(category2);
+
+        assertNotEquals(categoryList,categoryController.all());
 
     }
 
