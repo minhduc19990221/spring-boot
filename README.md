@@ -1,5 +1,4 @@
-# sadi-assignment2
-Software Architecture: Design &amp; Implementation
+# spring-boot
 
 This project is based on Spring Boot tutorial: Build REST API services with Spring.
 All the related resources might be found in the Project -> Resources
